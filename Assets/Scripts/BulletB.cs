@@ -18,6 +18,7 @@ public class BulletB : Bullet
 
     protected override void Move()
     {
+        CheckCollisions();
         Vector2 direction = (transform.position - _target.transform.position).normalized;
         Vector2 move = direction * _speed * Time.deltaTime;
         transform.Translate(move);

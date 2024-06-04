@@ -10,13 +10,16 @@ public class PlayerShooting : MonoBehaviour
 
     [SerializeField] private GameObject _bullet;
 
-    [SerializeField] private float _reloadTime;
-    private float _firstReloadTime;
+    private float _reloadTime;
+
+    [SerializeField] private float _minReloadTime;
+    [SerializeField] private float _maxReloadTime;
+
     private bool _isReload;
 
     private void Awake()
     {
-        _firstReloadTime = _reloadTime;
+        _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
     }
     private void Start()
     {
@@ -42,7 +45,7 @@ public class PlayerShooting : MonoBehaviour
         if (_isReload)
         {
             Instantiate(_bullet, transform.position, transform.rotation);
-            _reloadTime = _firstReloadTime;
+            _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
             _isReload = false;
         }
         

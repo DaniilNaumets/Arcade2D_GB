@@ -20,7 +20,7 @@ public class BulletC : Bullet
 
     protected override void Move()
     {
-        
+        CheckCollisions();
         Vector2 move = _direction * _speed * Time.deltaTime;
         transform.Translate(move);
     }

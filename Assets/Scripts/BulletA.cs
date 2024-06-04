@@ -25,6 +25,7 @@ public class BulletA : Bullet
 
     protected override void Move()
     {
+        CheckCollisions();
         Vector2 move = _bulletDirection * _speed * Time.deltaTime;
         transform.Translate(move);
     }

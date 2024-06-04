@@ -5,7 +5,11 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour
 {
     [SerializeField] protected float _speed;
+    [SerializeField] protected int _damage;
     protected float _lifeTime = 10f;
+
+    [SerializeField] private LayerMask _characterLayer;
+    [SerializeField] private float _collisionRadius = 0.1f;
 
     protected void LifeTime()
     {
@@ -19,4 +23,25 @@ public abstract class Bullet : MonoBehaviour
         }
     }
     protected abstract void Move();
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<HP>())
+        {
+            collision.gameObject.GetComponent<HP>().Attacked(_damage);
+        }
+    }
+
+    protected void CheckCollisions()
+    {
+        Collider2D[] enemyes = Physics2D.OverlapCircleAll(transform.position, _collisionRadius, _characterLayer);
+        foreach(Collider2D collision in enemyes)
+        {
+            if(collision.gameObject.GetComponent<HP>())
+            {
+                collision.gameObject.GetComponent<HP>().Attacked(_damage);
+                Destroy(gameObject);
+            }
+        }
+    }
 }
