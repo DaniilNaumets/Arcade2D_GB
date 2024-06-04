@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class EnemyA : Enemy
 {
     private bool _isStop;
+    private float _stayPositionY;
     public override void Move()
     {
         if (!_isStop)
@@ -19,7 +22,12 @@ public class EnemyA : Enemy
             if (transform.position.x < min.x + Random.Range(11, 16))
             {
                 _isStop = true;
+                _stayPositionY = transform.position.y;
             }
+        }
+        else
+        {
+            Stay();
         }
     }
 
@@ -27,7 +35,9 @@ public class EnemyA : Enemy
     {
         if (_isStop)
         {
-            Vector2 move = Vector2.up * -_speed * Time.deltaTime;
+            Vector2 newPosition = transform.position;
+            newPosition.y += Random.Range(-2f, 2f) * _speed * Time.deltaTime;
+            transform.position = newPosition;
         }
     }
 
