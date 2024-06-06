@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3933658694873186327}
   - component: {fileID: 2604999274146549673}
   - component: {fileID: 7348637075855675594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.19, y: -2.885137, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,12 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa93d1bebf5d794c826bb467ef7613c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 2.2
   _damage: 100
+  _lifeTime: 20
   _characterLayer:
     serializedVersion: 2
     m_Bits: 64
   _collisionRadius: 0.1
+  _isImmortal: 0
 --- !u!60 &7348637075855675594
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
     private NewControls _controls;
 
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _specBullet;
 
     private float _reloadTime;
 
@@ -26,6 +27,7 @@ public class PlayerShooting : MonoBehaviour
         _controls = _inputControls.GetControls();
 
         _controls.Spaceship.Shooting.performed += context => Shoot();
+        _controls.Spaceship.SpecialShooting.performed += context => SpecShoot();
     }
 
     private void Update()
@@ -49,5 +51,18 @@ public class PlayerShooting : MonoBehaviour
             _isReload = false;
         }
         
+    }
+
+    private void SpecShoot()
+    {
+        Instantiate(_specBullet, new Vector3(transform.position.x + 1,transform.position.y), transform.rotation);
+        _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
+        _isReload = false;
+    }
+
+    private void OnDestroy()
+    {
+        _controls.Spaceship.Shooting.performed -= context => Shoot();
+        _controls.Spaceship.SpecialShooting.performed -= context => SpecShoot();
     }
 }

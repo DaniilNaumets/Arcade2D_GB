@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 401014}
   - component: {fileID: 21260466}
   - component: {fileID: 9558354}
+  - component: {fileID: 186896087865563809}
+  - component: {fileID: 2249425163075561979}
   m_Layer: 0
   m_Name: spaceship_6
   m_TagString: Untagged
@@ -106,3 +108,78 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &186896087865563809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bfa5fd9be649f44b899080e7d63755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2.5
+  _damage: 500
+  _lifeTime: 13
+  _characterLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _collisionRadius: 0.5
+  _isImmortal: 1
+  _direction: 3
+--- !u!60 &2249425163075561979
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4, y: 0.4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.049999997, y: 0.099999994}
+      - {x: -0.099999994, y: 0.044999998}
+      - {x: -0.099999994, y: -0.03}
+      - {x: -0.074999996, y: -0.085}
+      - {x: -0.065, y: -0.099999994}
+      - {x: 0.06, y: -0.099999994}
+      - {x: 0.099999994, y: -0.074999996}
+      - {x: 0.099999994, y: 0.055}
+      - {x: 0.049999997, y: 0.099999994}
+  m_UseDelaunayMesh: 0

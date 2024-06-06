@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 8586681069200448384}
   - component: {fileID: 5446297846701025021}
   - component: {fileID: 737581243428667239}
-  m_Layer: 0
+  - component: {fileID: 2471853612477815595}
+  - component: {fileID: 1779129595019721697}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,6 +196,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f432948639ad84fa87ba47d96779f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &2471853612477815595
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723226413516295785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4, y: 0.4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.11, y: 0.19999999}
+      - {x: -0.14999999, y: 0.17}
+      - {x: -0.14999999, y: 0}
+      - {x: -0.04, y: -0.19999999}
+      - {x: 0.03, y: -0.19999999}
+      - {x: 0.14999999, y: -0.04}
+      - {x: 0.14999999, y: 0.17}
+      - {x: 0.14, y: 0.19999999}
+  m_UseDelaunayMesh: 0
+--- !u!114 &1779129595019721697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723226413516295785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2d65a02af20444db8f2d48721d18cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &5035461941244078779
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,4 +308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputControls: {fileID: 737581243428667239}
   _bullet: {fileID: 4397795294561169172, guid: c939d5f512530a04e8b81dc7b4f29030, type: 3}
-  _reloadTime: 0.4
+  _specBullet: {fileID: 5888252486464791377, guid: e85ed8314e61ec146a014d5f71609998, type: 3}
+  _minReloadTime: 0.6
+  _maxReloadTime: 0.8
