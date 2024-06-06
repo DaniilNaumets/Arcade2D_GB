@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2d65a02af20444db8f2d48721d18cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 15000
 --- !u!1 &5035461941244078779
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,5 +309,5 @@ MonoBehaviour:
   _inputControls: {fileID: 737581243428667239}
   _bullet: {fileID: 4397795294561169172, guid: c939d5f512530a04e8b81dc7b4f29030, type: 3}
   _specBullet: {fileID: 5888252486464791377, guid: e85ed8314e61ec146a014d5f71609998, type: 3}
-  _minReloadTime: 0.6
-  _maxReloadTime: 0.8
+  _minReloadTime: 0.3
+  _maxReloadTime: 0.3

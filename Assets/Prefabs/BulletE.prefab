@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _damage: 500
-  _lifeTime: 13
+  _lifeTime: 3
   _characterLayer:
     serializedVersion: 2
     m_Bits: 128
