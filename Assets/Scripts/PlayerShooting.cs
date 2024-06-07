@@ -12,15 +12,20 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject _specBullet;
 
     private float _reloadTime;
+    private float _reloadTimeE;
+    [SerializeField] private float _specAttackReloadTime;
 
     [SerializeField] private float _minReloadTime;
     [SerializeField] private float _maxReloadTime;
 
     private bool _isReload;
+    private bool _isSpecReload;
 
     private void Awake()
     {
         _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
+        _reloadTimeE = _specAttackReloadTime;
+        UnityEvents.UpdateSpecAttackReloadBar.Invoke(_specAttackReloadTime);
     }
     private void Start()
     {
@@ -40,6 +45,15 @@ public class PlayerShooting : MonoBehaviour
         {
             _isReload = true;
         }
+
+        if (_reloadTimeE > 0)
+        {
+            _reloadTimeE -= Time.deltaTime;
+        }
+        else
+        {
+            _isSpecReload = true;
+        }
     }
 
     private void Shoot()
@@ -55,9 +69,13 @@ public class PlayerShooting : MonoBehaviour
 
     private void SpecShoot()
     {
-        Instantiate(_specBullet, new Vector3(transform.position.x + 1,transform.position.y), transform.rotation);
-        _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
-        _isReload = false;
+        if (_isSpecReload)
+        {
+            Instantiate(_specBullet, new Vector3(transform.position.x + 1, transform.position.y), transform.rotation);
+            _reloadTimeE = _specAttackReloadTime;
+            _isSpecReload = false;
+            UnityEvents.UpdateSpecAttackReloadBar.Invoke(_specAttackReloadTime);
+        }
     }
 
     private void OnDestroy()

@@ -9,4 +9,5 @@ public class UnityEvents : MonoBehaviour
 
     public static UnityEvent<float, float> UpdateUIHealthBar = new();
     public static UnityEvent<float, float, int> UpdateUIScoreBar = new();
+    public static UnityEvent<float> UpdateSpecAttackReloadBar = new();
 }
