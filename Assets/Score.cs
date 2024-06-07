@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private int _score;
+    [SerializeField] private int _currentLevel;
+    [SerializeField] private float[] _scoreToLevels;
+    [SerializeField] private float _score;
+
 
     public delegate void ScoreHandler(int points);
     public event ScoreHandler OnScoreEvent;
@@ -12,6 +15,26 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         UnityEvents.OnAddScorePoints.AddListener(AddScore);
+        UnityEvents.UpdateUIScoreBar.Invoke(_score, _scoreToLevels[_currentLevel], _currentLevel);
     }
-    public void AddScore(int points) => _score += points;
+    public void AddScore(float points)
+    {
+        _score += points;
+        ChangeLevel();
+        UnityEvents.UpdateUIScoreBar.Invoke(_score, _scoreToLevels[_currentLevel], _currentLevel);
+    }
+
+    private void ChangeLevel()
+    {
+        if (_score >= _scoreToLevels[_currentLevel])
+        {
+            for (int i = _currentLevel; i < _scoreToLevels.Length; i++)
+            {
+                if(_score >= _scoreToLevels[i])
+                {
+                    _currentLevel++;
+                }
+            }
+        }
+    }
 }

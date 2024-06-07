@@ -10,6 +10,8 @@ public class HP : MonoBehaviour
     private void Awake()
     {
         _currentHealth = _maxHealth;
+        if (GetComponent<PlayerMovement>())
+            UnityEvents.UpdateUIHealthBar.Invoke(_currentHealth, _maxHealth);
     }
     private void Death()
     {

@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class UnityEvents : MonoBehaviour
 {
-    public static UnityEvent<int> OnAddScorePoints = new();
+    public static UnityEvent<float> OnAddScorePoints = new();
 
     public static UnityEvent<float, float> UpdateUIHealthBar = new();
+    public static UnityEvent<float, float, int> UpdateUIScoreBar = new();
 }

@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _minSpeed;
     [SerializeField] protected float _maxSpeed;
 
-    [SerializeField] protected int _givenScorePoints;
+    [SerializeField] protected float _givenScorePoints;
 
     private void Awake()
     {
@@ -20,5 +20,5 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Move();
 
-    public int GetScorePoints() => _givenScorePoints;
+    public float GetScorePoints() => _givenScorePoints;
 }
