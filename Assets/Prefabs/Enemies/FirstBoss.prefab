@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5329189690394588407}
   - component: {fileID: 4856238929486548156}
   - component: {fileID: 5855273420180163060}
+  - component: {fileID: 4844034676349813745}
   m_Layer: 7
   m_Name: FirstBoss
   m_TagString: Untagged
@@ -296,6 +297,23 @@ PolygonCollider2D:
       - {x: 0.06, y: 0.14}
       - {x: 0.03, y: 0.12}
   m_UseDelaunayMesh: 0
+--- !u!114 &4844034676349813745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053458997791884383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd82490211123e3449e80f7ca407b0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _speed: 0
+  _minSpeed: 0
+  _maxSpeed: 0
+  _givenScorePoints: 150
 --- !u!1 &3847395900807761716
 GameObject:
   m_ObjectHideFlags: 0

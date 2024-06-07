@@ -10,6 +10,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _minSpeed;
     [SerializeField] protected float _maxSpeed;
 
+    [SerializeField] protected int _givenScorePoints;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -17,4 +19,6 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public abstract void Move();
+
+    public int GetScorePoints() => _givenScorePoints;
 }

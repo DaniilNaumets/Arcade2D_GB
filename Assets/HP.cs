@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth;
-    private int _currentHealth;
+    [SerializeField] private float _maxHealth;
+    private float _currentHealth;
 
     private void Awake()
     {
@@ -15,6 +15,8 @@ public class HP : MonoBehaviour
     {
         if(_currentHealth <= 0)
         {
+            if(GetComponent<Enemy>() != null)
+            UnityEvents.OnAddScorePoints.Invoke(GetComponent<Enemy>().GetScorePoints());
             Destroy(gameObject);
         }
     }
@@ -22,17 +24,9 @@ public class HP : MonoBehaviour
     public void Attacked(int damage)
     {
         _currentHealth -= damage;
-        Debug.Log("Ohh " + this.gameObject);
         Death();
-    }
+        if (GetComponent<PlayerMovement>())
+            UnityEvents.UpdateUIHealthBar.Invoke(_currentHealth, _maxHealth);
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(1);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(1);
     }
 }
