@@ -23,6 +23,25 @@ public class BulletA : Bullet
         LifeTime();
     }
 
+    protected override void CheckCollisions()
+    {
+        Collider2D[] enemyes = Physics2D.OverlapCircleAll(transform.position, _collisionRadius, _characterLayer);
+        foreach (Collider2D collision in enemyes)
+        {
+            if (collision.gameObject.GetComponent<HP>())
+            {
+                collision.gameObject.GetComponent<HP>().Attacked(_damage);
+                if(!_isImmortal)
+                Destroy(gameObject);
+                else
+                {
+                    if(Convert.ToInt32(collision.gameObject.GetComponent<HP>().GetCurrentHP()) > 0)
+                    GetComponent<HP>().Attacked(Convert.ToInt32(collision.gameObject.GetComponent<HP>().GetCurrentHP()));
+                }
+            }
+        }
+    }
+
     protected override void Move()
     {
         CheckCollisions();

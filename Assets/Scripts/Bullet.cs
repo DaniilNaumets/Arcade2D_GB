@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected LayerMask _characterLayer;
     [SerializeField] protected float _collisionRadius = 0.1f;
 
-    [SerializeField] private bool _isImmortal;
+    [SerializeField] protected bool _isImmortal;
 
     protected void LifeTime()
     {
@@ -42,7 +43,6 @@ public abstract class Bullet : MonoBehaviour
             if(collision.gameObject.GetComponent<HP>())
             {
                 collision.gameObject.GetComponent<HP>().Attacked(_damage);
-                if(!_isImmortal)
                 Destroy(gameObject);
             }
         }

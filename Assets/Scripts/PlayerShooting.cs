@@ -25,12 +25,11 @@ public class PlayerShooting : MonoBehaviour
     {
         _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
         _reloadTimeE = _specAttackReloadTime;
-        UnityEvents.UpdateSpecAttackReloadBar.Invoke(_specAttackReloadTime);
     }
     private void Start()
     {
         _controls = _inputControls.GetControls();
-
+        UnityEvents.UpdateSpecAttackReloadBar.Invoke(_specAttackReloadTime);
         _controls.Spaceship.Shooting.performed += context => Shoot();
         _controls.Spaceship.SpecialShooting.performed += context => SpecShoot();
     }

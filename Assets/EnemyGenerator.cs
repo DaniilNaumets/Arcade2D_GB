@@ -4,16 +4,86 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    public enum Enemies
+    {
+        A, B, C, Boss
+    }
+
+    [SerializeField] private StageConfig[] _stages;
+    
+    [SerializeField] private GameObject[] _enemiesPrefabs;
+
+    private int _activeEnemies;
+    private int _currentStage;
+
+    private Vector2 _min;
+    private Vector2 _max;
+
+    private void Awake()
+    {
+        _min = Camera.main.ViewportToWorldPoint(Vector2.zero);
+        _max = Camera.main.ViewportToWorldPoint(Vector2.one);
+    }
+
+    private void OnEnable()
+    {
+        Enemy.OnEnemyDestroyed += EnemyDestroying;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyDestroyed -= EnemyDestroying;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(StartStage(_currentStage));
+    }
+
+    private void EnemyDestroying()
+    {
+        _activeEnemies--;
+        if(_activeEnemies <= 0)
+        {
+            _currentStage++;
+            if(_currentStage < _stages.Length)
+            {
+                StartCoroutine(StartStage(_currentStage));
+            }
+        }
+    }
+
+    private IEnumerator StartStage(int curStage)
+    {
+        Debug.Log(1);
+        StageConfig stage = _stages[curStage];
+        foreach(int enemyType in stage.GetEnemiesTypes())
+        {
+            Debug.Log(5);
+            Spawn(enemyType);
+            yield return new WaitForSeconds(Random.Range(0.3f,1.2f));
+        }
+    }
 
     [ContextMenu("11")]
-    private void Spawn()
+    private void Spawn(int num)
     {
-        Vector2 min = Camera.main.ViewportToWorldPoint(Vector2.zero);
-        Vector2 max = Camera.main.ViewportToWorldPoint(Vector2.one);
+        GameObject newEnemy = Instantiate(ConvertEnemyToGameObject(num));
+        if (num != 3)
+            newEnemy.transform.position = new Vector2(_max.x, Random.Range(-6, 6));
+        else
+            newEnemy.transform.position = new Vector2(_max.x + 3, 0.5f);
+        _activeEnemies++;
+    }
 
-        GameObject newEnemy = Instantiate(_enemy);
 
-        newEnemy.transform.position = new Vector2(max.x, Random.Range(min.y, max.y));
+    private GameObject ConvertEnemyToGameObject(int num)
+    {
+        for (int i = 0; i < _enemiesPrefabs.Length; i++)
+        {
+            if (i == num - 1)
+                return _enemiesPrefabs[i];
+        }
+        return null;
     }
 }

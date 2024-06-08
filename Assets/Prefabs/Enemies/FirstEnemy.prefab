@@ -170,9 +170,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ec22a492dfbfa48924c32c1e782abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   _speed: 3
   _minSpeed: 2
   _maxSpeed: 5
+  _xValueOne: 11
+  _xValueTwo: 12
+  _givenScorePoints: 20
 --- !u!60 &6024174072811078008
 PolygonCollider2D:
   m_ObjectHideFlags: 0

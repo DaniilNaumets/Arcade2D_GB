@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3942331130209712013}
   - component: {fileID: 2827540646529262858}
   - component: {fileID: 3007355128630984299}
+  - component: {fileID: 2656926289618671619}
   m_Layer: 0
   m_Name: BulletE
   m_TagString: Untagged
@@ -183,3 +184,16 @@ PolygonCollider2D:
       - {x: 0.099999994, y: 0.055}
       - {x: 0.049999997, y: 0.099999994}
   m_UseDelaunayMesh: 0
+--- !u!114 &2656926289618671619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888252486464791377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2d65a02af20444db8f2d48721d18cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 500

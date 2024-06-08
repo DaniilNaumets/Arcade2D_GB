@@ -9,9 +9,24 @@ public class EnemyBoss : Enemy
     
     public override void Move()
     {
-        Vector2 newPosition = transform.position;
-        newPosition.y += Random.Range(-2f, 2f) * _speed * Time.deltaTime;
-        transform.position = newPosition;
+        if (!_isStop)
+        {
+            Vector2 move = Vector2.up * -_speed * Time.deltaTime;
+
+            transform.Translate(move);
+
+            Vector2 min = Camera.main.ViewportToWorldPoint(Vector2.zero);
+            Vector2 max = Camera.main.ViewportToWorldPoint(Vector2.one);
+
+            if (transform.position.x < 9f)
+            {
+                _isStop = true;
+            }
+        }
+        else
+        {
+            _isStop = true;
+        }
     }
 
 

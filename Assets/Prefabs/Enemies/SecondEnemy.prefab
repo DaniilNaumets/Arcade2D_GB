@@ -293,6 +293,9 @@ MonoBehaviour:
   _speed: 10
   _minSpeed: 8
   _maxSpeed: 12
+  _xValueOne: 11
+  _xValueTwo: 20
+  _givenScorePoints: 50
 --- !u!60 &2622855071532693767
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -5,13 +5,16 @@ using UnityEngine;
 public class HP : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
         if (GetComponent<PlayerMovement>())
+        {
             UnityEvents.UpdateUIHealthBar.Invoke(_currentHealth, _maxHealth);
+            Debug.Log(_maxHealth);
+        }
     }
     private void Death()
     {
@@ -31,4 +34,6 @@ public class HP : MonoBehaviour
             UnityEvents.UpdateUIHealthBar.Invoke(_currentHealth, _maxHealth);
 
     }
+
+    public float GetCurrentHP() => _currentHealth;
 }
