@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 1000
+  _currentHealth: 0
 --- !u!114 &1260399959941085260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +284,7 @@ MonoBehaviour:
   - 400
   - 500
   _score: 0
+  _bonusGenerator: {fileID: 0}
 --- !u!1 &5035461941244078779
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,5 +332,6 @@ MonoBehaviour:
   _inputControls: {fileID: 737581243428667239}
   _bullet: {fileID: 4397795294561169172, guid: c939d5f512530a04e8b81dc7b4f29030, type: 3}
   _specBullet: {fileID: 5888252486464791377, guid: e85ed8314e61ec146a014d5f71609998, type: 3}
+  _specAttackReloadTime: 5
   _minReloadTime: 0.3
   _maxReloadTime: 0.3

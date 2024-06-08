@@ -39,4 +39,11 @@ public class HP : MonoBehaviour
     }
 
     public float GetCurrentHP() => _currentHealth;
+
+    public void UpHP(float value)
+    {
+        _maxHealth += _maxHealth * value;
+        _currentHealth = _maxHealth;
+        UnityEvents.UpdateUIHealthBar.Invoke(_currentHealth, _maxHealth);
+    }
 }

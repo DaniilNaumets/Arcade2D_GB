@@ -484,6 +484,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _count: 60
   _starPrefab: {fileID: 3108026359048114858, guid: 1972382db72405e4ab17706fd3317c3b, type: 3}
+--- !u!1 &854704141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 854704142}
+  - component: {fileID: 854704143}
+  m_Layer: 0
+  m_Name: BonusGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &854704142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854704141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.9586535, y: 0.5299336, z: -0.15043087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854704143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854704141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2fb61ef9c931046a4ee2ecb8eb08e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonuses:
+  - {fileID: 3609317710622902693, guid: 05358e041663f28469964ed8fa059961, type: 3}
+  - {fileID: 6873100029007244293, guid: 58628aecc9cf17848896b5ea28b36ba2, type: 3}
+  - {fileID: 7523351482882735276, guid: 49546582440415b4eb992f25b1289eaf, type: 3}
 --- !u!1 &859104797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,13 +1393,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1260399959941085260, guid: f4874b327504ced4387e9bedede2067a, type: 3}
+      propertyPath: _bonusGenerator
+      value: 
+      objectReference: {fileID: 854704143}
     - target: {fileID: 2723226413516295785, guid: f4874b327504ced4387e9bedede2067a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150379695019203994, guid: f4874b327504ced4387e9bedede2067a, type: 3}
-      propertyPath: _specAttackReloadTime
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1366,6 +1414,7 @@ SceneRoots:
   - {fileID: 4103555660564067984}
   - {fileID: 698090358}
   - {fileID: 962870873}
+  - {fileID: 854704142}
   - {fileID: 984308972}
   - {fileID: 611109886}
   - {fileID: 1110649429}

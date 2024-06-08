@@ -8,6 +8,8 @@ public class Score : MonoBehaviour
     [SerializeField] private float[] _scoreToLevels;
     [SerializeField] private float _score;
 
+    [SerializeField] private BonusGenerator _bonusGenerator;
+
 
     public delegate void ScoreHandler(int points);
     public event ScoreHandler OnScoreEvent;
@@ -33,6 +35,7 @@ public class Score : MonoBehaviour
                 if(_score >= _scoreToLevels[i])
                 {
                     _currentLevel++;
+                    _bonusGenerator.SpawnBonus();
                 }
             }
         }

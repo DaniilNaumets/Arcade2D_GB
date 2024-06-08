@@ -33,4 +33,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 move = new Vector2(vector.y, -vector.x) * _speed * Time.deltaTime;
         transform.Translate(move);
     }
+
+    public void SpeedUp(float value) => _speed *= value;
 }
