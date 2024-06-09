@@ -4,9 +4,14 @@ using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class EnemyBoss : Enemy
+public class EnemyB : Enemy
 {
-    
+
+    private void Update()
+    {
+        Move();
+    }
+
     public override void Move()
     {
         if (!_isStop)
@@ -18,20 +23,22 @@ public class EnemyBoss : Enemy
             Vector2 min = Camera.main.ViewportToWorldPoint(Vector2.zero);
             Vector2 max = Camera.main.ViewportToWorldPoint(Vector2.one);
 
-            if (transform.position.x < 9f)
+            if (transform.position.x < _stopPositionX)
             {
                 _isStop = true;
             }
         }
         else
         {
-            _isStop = true;
+            Stay();
         }
     }
 
-
-    private void Update()
+    private void Stay()
     {
-        Move();
+        if (_isStop)
+        {
+            _animator.SetBool("isStay", true);
+        }
     }
 }

@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public enum Enemies
-    {
-        A, B, C, Boss
-    }
-
     [SerializeField] private StageConfig[] _stages;
-    
+
     [SerializeField] private GameObject[] _enemiesPrefabs;
 
     private int _activeEnemies;
@@ -18,6 +13,11 @@ public class EnemyGenerator : MonoBehaviour
 
     private Vector2 _min;
     private Vector2 _max;
+
+    public enum Enemies
+    {
+        A, B, C, Boss
+    }
 
     private void Awake()
     {
@@ -73,7 +73,6 @@ public class EnemyGenerator : MonoBehaviour
             newEnemy.transform.position = new Vector2(_max.x + 3, 0.5f);
         _activeEnemies++;
     }
-
 
     private GameObject ConvertEnemyToGameObject(int num)
     {

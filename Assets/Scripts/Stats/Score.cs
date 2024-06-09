@@ -10,7 +10,6 @@ public class Score : MonoBehaviour
 
     [SerializeField] private BonusGenerator _bonusGenerator;
 
-
     public delegate void ScoreHandler(int points);
     public event ScoreHandler OnScoreEvent;
 

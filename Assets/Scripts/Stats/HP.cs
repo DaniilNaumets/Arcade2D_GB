@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
+    [SerializeField] private GameManager _gm;
+
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentHealth;
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
-        
     }
     private void Start()
     {
@@ -25,6 +26,10 @@ public class HP : MonoBehaviour
         {
             if(GetComponent<Enemy>() != null)
             UnityEvents.OnAddScorePoints.Invoke(GetComponent<Enemy>().GetScorePoints());
+            if (GetComponent<PlayerMovement>())
+            {
+                _gm.LooseGame();
+            }
             Destroy(gameObject);
         }
     }

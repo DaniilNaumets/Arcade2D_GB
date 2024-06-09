@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class EnemyA : Enemy
 {
-    
-    private float _stayPositionY;
+    private void Update()
+    {
+        Move();
+    }
+
     public override void Move()
     {
         if (!_isStop)
@@ -22,7 +25,6 @@ public class EnemyA : Enemy
             if (transform.position.x < _stopPositionX)
             {
                 _isStop = true;
-                _stayPositionY = transform.position.y;
             }
         }
         else
@@ -39,10 +41,5 @@ public class EnemyA : Enemy
             newPosition.y += Random.Range(-2f, 2f) * _speed * Time.deltaTime;
             transform.position = newPosition;
         }
-    }
-
-    private void Update()
-    {
-        Move();
     }
 }

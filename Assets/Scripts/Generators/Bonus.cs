@@ -6,13 +6,12 @@ using UnityEngine;
 public class Bonus : MonoBehaviour
 {
     [SerializeField] private int _type;
-
     [SerializeField] private GameObject _bulletE;
     [SerializeField] private float _changeValue;
-    private GameObject _player;
     [SerializeField] private LayerMask _playerLayer;
-
     [SerializeField] private AudioSource _audio;
+
+    private GameObject _player;
 
     private void Awake()
     {
@@ -36,8 +35,6 @@ public class Bonus : MonoBehaviour
             }
         }
     }
-
-
 
     private void GiveBonus()
     {

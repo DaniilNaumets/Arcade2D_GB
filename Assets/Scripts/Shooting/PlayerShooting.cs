@@ -7,18 +7,20 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioShooting;
     [SerializeField] private AudioSource _audioShootingE;
+
     [SerializeField] private InputControls _inputControls;
-    private NewControls _controls;
 
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _specBullet;
 
-    private float _reloadTime;
-    private float _reloadTimeE;
     [SerializeField] private float _specAttackReloadTime;
-
     [SerializeField] private float _minReloadTime;
     [SerializeField] private float _maxReloadTime;
+
+    private NewControls _controls;
+
+    private float _reloadTime;
+    private float _reloadTimeE;
 
     private bool _isReload;
     private bool _isSpecReload;

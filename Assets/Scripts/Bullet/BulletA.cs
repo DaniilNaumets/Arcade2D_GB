@@ -7,7 +7,7 @@ public class BulletA : Bullet
 {
     [SerializeField] private Direction _direction;
     private Vector2 _bulletDirection;
-    enum Direction
+    private enum Direction
     {
         Up, Down, Left, Right
     }

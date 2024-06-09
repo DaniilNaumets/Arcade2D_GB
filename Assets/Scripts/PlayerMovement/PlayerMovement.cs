@@ -7,16 +7,15 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    private Vector2 _direction;
-
     [SerializeField] private InputControls _inputControls;
+
+    private Vector2 _direction;
     private NewControls _controls;
     
 
     private void Start()
     {
         _controls = _inputControls.GetControls();
-
         _controls.Spaceship.Move.performed += OnMove;
         _controls.Spaceship.Move.canceled += OnMove;
     }

@@ -5,14 +5,12 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-
     [SerializeField] private GameObject _bullet;
-
-    private float _reloadTime;
 
     [SerializeField] private float _minReloadTime;
     [SerializeField] private float _maxReloadTime;
 
+    private float _reloadTime;
     private bool _isReload;
 
     private void Awake()

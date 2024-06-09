@@ -6,7 +6,6 @@ public class BulletB : Bullet
 {
     private GameObject _target;
 
-
     private void Awake()
     {
         _target = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -19,7 +18,6 @@ public class BulletB : Bullet
 
     protected override void CheckCollisions()
     {
-        Debug.Log(2);
         Collider2D[] enemyes = Physics2D.OverlapCircleAll(transform.position, _collisionRadius, _characterLayer);
         foreach (Collider2D collision in enemyes)
         {

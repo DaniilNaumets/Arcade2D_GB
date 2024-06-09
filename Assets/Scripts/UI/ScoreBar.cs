@@ -8,7 +8,6 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] private Image _scoreBar;
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _levelText;
-
     [SerializeField] private Score _currentScore;
 
     private void Awake()
@@ -23,7 +22,5 @@ public class ScoreBar : MonoBehaviour
         _levelText.text = (curLevel + 1).ToString();
 
         StopAllCoroutines();
-    }
-
-    
+    }  
 }
