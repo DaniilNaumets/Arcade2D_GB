@@ -12,6 +12,8 @@ public class Bonus : MonoBehaviour
     private GameObject _player;
     [SerializeField] private LayerMask _playerLayer;
 
+    [SerializeField] private AudioSource _audio;
+
     private void Awake()
     {
         _player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -42,9 +44,11 @@ public class Bonus : MonoBehaviour
         switch (_type)
         {
             case 0: UpMaxHp(_player.GetComponent<HP>()); break;
-            case 1: KillAll(); break;
-            case 2: UpSpeed(_player.GetComponent<PlayerMovement>()); break;
+            case 1: UpProjectileSpeed(_player.GetComponentInChildren<PlayerShooting>()); break;
+            case 2: KillAll(); break;
+            case 3: UpSpeed(_player.GetComponent<PlayerMovement>()); break;
         }
+        _audio.Play();
         
     }
 
@@ -55,7 +59,7 @@ public class Bonus : MonoBehaviour
 
     private void UpSpeed(PlayerMovement playerMovement)
     {
-        playerMovement.SpeedUp(2);
+        playerMovement.SpeedUp(_changeValue);
     }
 
     private void KillAll()
@@ -64,5 +68,10 @@ public class Bonus : MonoBehaviour
         {
             Instantiate(_bulletE, new Vector3(-10, i, 0), transform.rotation);
         }
+    }
+
+    private void UpProjectileSpeed(PlayerShooting playerShooting)
+    {
+        playerShooting.SpeedBulletUp(_changeValue);
     }
 }

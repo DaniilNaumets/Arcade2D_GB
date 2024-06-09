@@ -47,4 +47,6 @@ public abstract class Bullet : MonoBehaviour
             }
         }
     }
+
+    public void SpeedUp(float value) => _speed *= value;
 }

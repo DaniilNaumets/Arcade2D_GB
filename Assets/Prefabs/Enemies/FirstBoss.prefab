@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2d65a02af20444db8f2d48721d18cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1500
+  _maxHealth: 2000
+  _currentHealth: 0
 --- !u!60 &5855273420180163060
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -410,8 +411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _bullet: {fileID: 7696249417718334122, guid: 2be233f754e37e34abecb7e4c6c1176e, type: 3}
-  _minReloadTime: 10
-  _maxReloadTime: 10
+  _minReloadTime: 6
+  _maxReloadTime: 6
 --- !u!1 &6178301215308273631
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,5 +459,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _bullet: {fileID: 7696249417718334122, guid: 2be233f754e37e34abecb7e4c6c1176e, type: 3}
-  _minReloadTime: 10
-  _maxReloadTime: 10
+  _minReloadTime: 6
+  _maxReloadTime: 6

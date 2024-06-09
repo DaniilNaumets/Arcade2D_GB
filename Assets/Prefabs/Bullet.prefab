@@ -98,12 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bfa5fd9be649f44b899080e7d63755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _speed: 5
   _damage: 100
+  _lifeTime: 10
   _characterLayer:
     serializedVersion: 2
     m_Bits: 128
   _collisionRadius: 0.1
+  _isImmortal: 0
   _direction: 3
 --- !u!60 &3701742167300456297
 PolygonCollider2D:

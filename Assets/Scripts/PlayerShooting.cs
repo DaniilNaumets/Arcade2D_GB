@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [SerializeField] private AudioSource _audioShooting;
+    [SerializeField] private AudioSource _audioShootingE;
     [SerializeField] private InputControls _inputControls;
     private NewControls _controls;
 
@@ -62,6 +64,7 @@ public class PlayerShooting : MonoBehaviour
             Instantiate(_bullet, transform.position, transform.rotation);
             _reloadTime = Random.Range(_minReloadTime, _maxReloadTime);
             _isReload = false;
+            _audioShooting.Play();
         }
         
     }
@@ -74,6 +77,7 @@ public class PlayerShooting : MonoBehaviour
             _reloadTimeE = _specAttackReloadTime;
             _isSpecReload = false;
             UnityEvents.UpdateSpecAttackReloadBar.Invoke(_specAttackReloadTime);
+            _audioShootingE.Play();
         }
     }
 
@@ -82,4 +86,6 @@ public class PlayerShooting : MonoBehaviour
         _controls.Spaceship.Shooting.performed -= context => Shoot();
         _controls.Spaceship.SpecialShooting.performed -= context => SpecShoot();
     }
+
+    public void SpeedBulletUp(float value) => _bullet.GetComponent<Bullet>().SpeedUp(value);
 }
