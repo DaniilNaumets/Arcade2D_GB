@@ -32,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 move = new Vector2(vector.y, -vector.x) * _speed * Time.deltaTime;
         transform.Translate(move);
+
+        Vector3 clampedPosition = transform.position;
+        Vector3 minBounds = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
+        Vector3 maxBounds = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
+
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, minBounds.x, maxBounds.x);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, minBounds.y, maxBounds.y);
+
+        transform.position = clampedPosition;
     }
 
     public void SpeedUp(float value) => _speed *= value;

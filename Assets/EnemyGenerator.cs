@@ -55,17 +55,15 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator StartStage(int curStage)
     {
-        Debug.Log(1);
         StageConfig stage = _stages[curStage];
         foreach(int enemyType in stage.GetEnemiesTypes())
         {
-            Debug.Log(5);
             Spawn(enemyType);
             yield return new WaitForSeconds(Random.Range(0.3f,1.2f));
         }
     }
 
-    [ContextMenu("11")]
+    [ContextMenu("spawnEnemy")]
     private void Spawn(int num)
     {
         GameObject newEnemy = Instantiate(ConvertEnemyToGameObject(num));
