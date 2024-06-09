@@ -17,7 +17,11 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         UnityEvents.OnAddScorePoints.AddListener(AddScore);
-        UnityEvents.UpdateUIScoreBar.Invoke(_score, _scoreToLevels[_currentLevel], _currentLevel);
+    }
+
+    private void Start()
+    {
+        UnityEvents.UpdateUIScoreBar.Invoke(_score, _scoreToLevels[_currentLevel], _currentLevel); 
     }
     public void AddScore(float points)
     {
